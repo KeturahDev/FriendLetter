@@ -11,10 +11,18 @@ namespace FriendLetter.Controllers
     public string Hello() { return "Hello friend!"; }
     [Route("/goodbye")]
     public string Goodbye() { return "Goodbye friend."; }
-    
+
     [Route("/")]
     // ActionResult .. This is a built-in MVC class that handles rendering views.
     // View() This is a built-in method from the Microsoft.AspNetCore.Mvc namespace. When our route is invoked, it will return a view.
     public ActionResult Letter() { return View(); }
+
+    // HOW ITS WORKING>>>
+    
+    // Because views should always reside in a Views directory, View() first locates the Views directory in the production project.
+
+    // Then the method looks for a subdirectory with a name that matches the controller name. Our Letter() route is in a HomeController so it looks for the subdirectory Home.
+
+    // Once in the Home directory, the method looks for a file that corresponds with the route itself. In this case, it's looking for Letter(). Our Letter.cshtml file name matches the name of this route so the View() method returns the HTML in this file.
   }
 }
