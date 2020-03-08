@@ -7,7 +7,11 @@ namespace FriendLetter.Controllers
   public class HomeController : Controller
   {
     //The Hello() method represents a route in our application.. apreas as a '/Hello' after home.com in url
+    [Route("/hello")]
     public string Hello() { return "Hello friend!"; }
+    [Route("/goodbye")]
     public string Goodbye() { return "Goodbye friend."; }
+    [Route("/")]
+    public string Letter() { return "Our virtual postcard will go here soon!"; }
   }
 }
