@@ -11,7 +11,10 @@ namespace FriendLetter.Controllers
     public string Hello() { return "Hello friend!"; }
     [Route("/goodbye")]
     public string Goodbye() { return "Goodbye friend."; }
+    
     [Route("/")]
-    public string Letter() { return "Our virtual postcard will go here soon!"; }
+    // ActionResult .. This is a built-in MVC class that handles rendering views.
+    // View() This is a built-in method from the Microsoft.AspNetCore.Mvc namespace. When our route is invoked, it will return a view.
+    public ActionResult Letter() { return View(); }
   }
 }
