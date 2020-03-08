@@ -1,5 +1,8 @@
 // This line imports the Microsoft.AspNetCore.Mvc namespace into our controller, so we have access to ASP.NET Core's built in Controller class
 using Microsoft.AspNetCore.Mvc;
+// make our model available to our controller:
+using FriendLetter.Models;
+
 
 namespace FriendLetter.Controllers
 {
@@ -15,10 +18,14 @@ namespace FriendLetter.Controllers
     [Route("/")]
     // ActionResult .. This is a built-in MVC class that handles rendering views.
     // View() This is a built-in method from the Microsoft.AspNetCore.Mvc namespace. When our route is invoked, it will return a view.
-    public ActionResult Letter() { return View(); }
+    public ActionResult Letter() {
+      LetterVariable myLetterVariable = new LetterVariable();
+      myLetterVariable.Recipient = "Lina";
+      return View(myLetterVariable);
+    }
 
     // HOW ITS WORKING>>>
-    
+
     // Because views should always reside in a Views directory, View() first locates the Views directory in the production project.
 
     // Then the method looks for a subdirectory with a name that matches the controller name. Our Letter() route is in a HomeController so it looks for the subdirectory Home.
