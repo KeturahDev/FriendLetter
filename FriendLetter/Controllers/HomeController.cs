@@ -40,12 +40,15 @@ namespace FriendLetter.Controllers
     // create a new route with a /postcard route decorator to handle this(retrieve the user's form input and insert it into our Postcard.cshtml view), because the path must match the form's action attribute.
     [Route("/postcard")]
     // Our form has two <input>s, one with a name="sender" attribute and another with a name="recipient" attribute. These are the parameters we pass into the route method. 
-    public ActionResult Postcard(string recipient, string sender)
+    public ActionResult Postcard(string recipient, string sender, string location, string gift)
     {
       LetterVariable myLetterVariable = new LetterVariable();
     // This route can automatically access those values via the parameters we pass into the Postcard() route method.
       myLetterVariable.Recipient = recipient;
       myLetterVariable.Sender = sender;
+      myLetterVariable.Location = location;
+      myLetterVariable.Gift = gift;
+
       return View(myLetterVariable);
     }
     // !!! Note that our application is looking for name attributes, not the id or anything else. These must match the parameters we pass into the route method. This must be an exact match or it will not work.
